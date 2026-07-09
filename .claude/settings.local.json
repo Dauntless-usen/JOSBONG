@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node -v)",
+      "PowerShell(npm -v)",
+      "PowerShell(where.exe node 2>&1; where.exe npm 2>&1; Get-ChildItem \"C:\\\\Program Files\\\\nodejs\" -ErrorAction SilentlyContinue; Get-ChildItem \"$env:APPDATA\\\\nvm\" -ErrorAction SilentlyContinue; Get-ChildItem \"$env:LOCALAPPDATA\\\\Programs\" -ErrorAction SilentlyContinue)",
+      "PowerShell(winget --version 2>&1)",
+      "PowerShell(choco --version 2>&1)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://nodejs.org/dist/index.json\" -UseBasicParsing -TimeoutSec 15 | Select-Object -ExpandProperty Content | Out-File \"$env:TEMP\\\\node-index.json\"; \\(Get-Content \"$env:TEMP\\\\node-index.json\" -Raw | ConvertFrom-Json\\) | Where-Object { $_.lts -ne $false } | Select-Object -First 3 version, lts)",
+      "PowerShell(Test-Path \"C:\\\\Program Files\\\\nodejs\\\\node.exe\"; Test-Path \"$env:APPDATA\\\\npm\\\\node.exe\"; Test-Path \"$env:LOCALAPPDATA\\\\Programs\\\\nodejs\\\\node.exe\"; $env:Path -split ';' | Select-String -Pattern \"node\")"
+    ]
+  }
+}
