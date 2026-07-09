@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: WorkDetailPageProps): Promise
   const project = getWorkBySlug(slug);
   if (!project) return {};
   return {
-    title: `${project.title} — JosBong`,
+    title: `${project.title} - JosBong`,
     description: project.outcome,
   };
 }

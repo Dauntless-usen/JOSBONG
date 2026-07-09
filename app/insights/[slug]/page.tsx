@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: InsightPageProps): Promise<Me
   const article = getInsightBySlug(slug);
   if (!article) return {};
   return {
-    title: `${article.title} — JosBong`,
+    title: `${article.title} - JosBong`,
     description: article.excerpt,
   };
 }

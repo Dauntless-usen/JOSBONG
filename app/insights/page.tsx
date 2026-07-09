@@ -3,7 +3,7 @@ import { getAllInsights } from "@/lib/content";
 import ArticleCard from "@/components/insights/ArticleCard";
 
 export const metadata: Metadata = {
-  title: "Insights — JosBong",
+  title: "Insights - JosBong",
   description: "Notes on research, AI, data, and academic work from JosBong.",
 };
 

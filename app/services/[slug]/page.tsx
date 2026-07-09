@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const service = getServiceBySlug(slug);
   if (!service) return {};
   return {
-    title: `${service.title} — JosBong`,
+    title: `${service.title} - JosBong`,
     description: service.summary,
   };
 }

@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button";
 import TrustStrip from "@/components/home/TrustStrip";
 
 export const metadata: Metadata = {
-  title: "About — JosBong",
+  title: "About - JosBong",
   description:
     "JosBong is a research, AI, and data services company serving businesses and academics.",
 };
@@ -14,7 +14,7 @@ const principles = [
     icon: ShieldCheck,
     title: "Rigor first",
     description:
-      "Every deliverable is built to hold up to scrutiny — sourced, tested, and documented.",
+      "Every deliverable is built to hold up to scrutiny - sourced, tested, and documented.",
   },
   {
     icon: Users,
@@ -40,7 +40,7 @@ export default function AboutPage() {
             JosBong is a research, AI, and data services company. We work
             with businesses building AI and data capabilities, and with
             academics and students who need rigorous research and analysis
-            support — often against a real deadline.
+            support - often against a real deadline.
           </p>
         </div>
       </section>

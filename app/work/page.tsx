@@ -5,7 +5,7 @@ import ProjectCard from "@/components/work/ProjectCard";
 import ProjectFilters from "@/components/work/ProjectFilters";
 
 export const metadata: Metadata = {
-  title: "Work — JosBong",
+  title: "Work - JosBong",
   description: "Research, AI, data, and academic projects delivered by JosBong.",
 };
 

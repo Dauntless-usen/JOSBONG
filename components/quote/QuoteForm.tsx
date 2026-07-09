@@ -11,8 +11,8 @@ const serviceOptions = [
 
 const budgetOptions = [
   "Under $1,000",
-  "$1,000 – $5,000",
-  "$5,000 – $20,000",
+  "$1,000 - $5,000",
+  "$5,000 - $20,000",
   "$20,000+",
   "Not sure yet",
 ];
@@ -75,7 +75,7 @@ export default function QuoteForm() {
       <div className="rounded-lg border border-gray-100 p-8 text-center">
         <h2 className="text-xl font-semibold text-navy">Request received</h2>
         <p className="mt-3 text-gray-600">
-          Thanks for reaching out — we&apos;ll follow up by email within one
+          Thanks for reaching out - we&apos;ll follow up by email within one
           business day.
         </p>
       </div>

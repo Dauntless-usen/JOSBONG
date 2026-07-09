@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { getAllServices } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Services — JosBong",
+  title: "Services - JosBong",
   description:
     "Research, AI solutions, data analysis, and academic support for businesses and academics.",
 };
