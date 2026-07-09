@@ -24,11 +24,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-1">
           <Image
-            src="/logo/logo-full-dark-bg.svg"
+            src="/logo/dark.jpeg"
             alt="JosBong"
-            width={183}
-            height={43}
-            className="h-9 w-auto"
+            width={192}
+            height={126}
+            className="h-24 w-auto"
           />
           <p className="mt-4 text-sm text-gray-400">
             Research, AI, and data services for businesses and academics.

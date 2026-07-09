@@ -17,15 +17,18 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-100 overflow-visible">
+      {/* h-[5.5rem] pins the bar to its previous rendered height (py-4 + the
+          old h-14 logo) so the enlarged logo overflows the bar instead of
+          growing it — overflow-visible lets that overflow paint uncropped. */}
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 h-[5.5rem] overflow-visible">
         <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
           <Image
-            src="/logo/logo-full-light-bg.svg"
+            src="/logo/light.jpeg"
             alt="JosBong"
-            width={137}
-            height={71}
-            className="h-9 w-auto"
+            width={192}
+            height={126}
+            className="h-24 w-auto"
             priority
           />
         </Link>

@@ -11,9 +11,17 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  // TODO: replace with the production domain once it's confirmed.
+  metadataBase: new URL("https://josbong.com"),
   title: "JosBong — Research, AI & Data Services",
   description:
     "JosBong provides research support, AI solutions, and data analysis services for businesses and academics.",
+  openGraph: {
+    title: "JosBong — Research, AI & Data Services",
+    description:
+      "JosBong provides research support, AI solutions, and data analysis services for businesses and academics.",
+    images: [{ url: "/logo/dark.jpeg", width: 1280, height: 840 }],
+  },
 };
 
 export default function RootLayout({
