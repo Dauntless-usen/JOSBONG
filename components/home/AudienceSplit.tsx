@@ -4,15 +4,15 @@ const audiences = [
   {
     title: "For Businesses",
     description:
-      "AI solutions and data analysis to help you make faster, better-informed decisions - from model prototyping to production pipelines.",
-    items: ["AI product development", "Data pipelines & analysis", "Custom dashboards"],
-    cta: { label: "See AI & Data Services", href: "/services/ai-solutions" },
+      "Market research, ideation, and consultancy support to help you make faster, better-informed decisions at every stage.",
+    items: ["Market Research and Business Research", "Ideation", "Consultancy"],
+    cta: { label: "See Business Services", href: "/services" },
   },
   {
     title: "For Academics & Students",
     description:
-      "Research support and academic assistance across data collection, analysis, and writing - built for rigor and deadlines.",
-    items: ["Literature reviews", "Statistical analysis", "Thesis & paper support"],
+      "Research assistance, proofreading, and data support that respects academic integrity - built to help you move faster without doing the work for you.",
+    items: ["Research Assistant Sourcing", "Thesis Proofreading", "Data Collection"],
     cta: { label: "See Academic Support", href: "/services/academic-support" },
   },
 ];

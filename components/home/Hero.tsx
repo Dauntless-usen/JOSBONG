@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import HeroTypewriter from "@/components/home/HeroTypewriter";
 
 export default function Hero() {
   return (
@@ -8,9 +9,8 @@ export default function Hero() {
           Research, AI, and data expertise for businesses and academia
         </h1>
         <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
-          JosBong helps companies build with AI and data, and helps
-          researchers and students move faster on rigorous, well-supported
-          work.
+          From <HeroTypewriter /> to impact, JosBong helps businesses and
+          academics move faster on rigorous, well-supported work.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Button href="/quote">Request a Quote</Button>
