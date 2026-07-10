@@ -6,6 +6,7 @@ export type QuoteSubmission = {
   services: string[];
   projectDetails: string;
   budget?: string;
+  attachmentUrl?: string;
 };
 
 function getResendClient() {
@@ -40,6 +41,11 @@ export async function sendQuoteNotification(submission: QuoteSubmission) {
     <p><strong>Budget:</strong> ${escapeHtml(submission.budget || "Not specified")}</p>
     <p><strong>Project details:</strong></p>
     <p>${escapeHtml(submission.projectDetails).replace(/\n/g, "<br />")}</p>
+    ${
+      submission.attachmentUrl
+        ? `<p><strong>Attachment:</strong> <a href="${escapeHtml(submission.attachmentUrl)}">View attachment</a> (link expires in 7 days)</p>`
+        : ""
+    }
   `;
 
   return resend.emails.send({
