@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail } from "lucide-react";
+import { getServiceListing } from "@/lib/services";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -11,12 +12,15 @@ const quickLinks = [
   { label: "Request a Quote", href: "/quote" },
 ];
 
-const serviceLinks = [
-  { label: "Research", href: "/services/research" },
-  { label: "AI Solutions", href: "/services/ai-solutions" },
-  { label: "Data Analysis", href: "/services/data-analysis" },
-  { label: "Academic Support", href: "/services/academic-support" },
-];
+// Every service now has a detail page, but a curated handful keeps this
+// column's length in line with "Quick Links" instead of listing all ten.
+// See /services for the full, category-grouped list.
+const footerServiceSlugs = ["research", "ai-solutions", "data-analysis", "academic-support"];
+const serviceLinks = footerServiceSlugs.map((slug) => {
+  const service = getServiceListing(slug);
+  if (!service) throw new Error(`Unknown service slug: ${slug}`);
+  return { label: service.title, href: `/services/${service.slug}` };
+});
 
 export default function Footer() {
   return (

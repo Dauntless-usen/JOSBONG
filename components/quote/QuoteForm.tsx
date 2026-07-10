@@ -1,13 +1,12 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { services } from "@/lib/services";
 
-const serviceOptions = [
-  { value: "research", label: "Research" },
-  { value: "ai-solutions", label: "AI Solutions" },
-  { value: "data-analysis", label: "Data Analysis" },
-  { value: "academic-support", label: "Academic Support" },
-];
+const serviceOptions = services.map((service) => ({
+  value: service.slug,
+  label: service.title,
+}));
 
 const budgetOptions = [
   "Under $1,000",

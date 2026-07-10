@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllServices } from "@/lib/content";
+import { getServicesByCategory, type ServiceCategory } from "@/lib/services";
+import ServiceCard from "@/components/services/ServiceCard";
 
 export const metadata: Metadata = {
   title: "Services - JosBong",
@@ -8,9 +8,13 @@ export const metadata: Metadata = {
     "Research, AI solutions, data analysis, and academic support for businesses and academics.",
 };
 
-export default function ServicesPage() {
-  const services = getAllServices();
+const sections: { category: ServiceCategory; heading: string }[] = [
+  { category: "general", heading: "General Services" },
+  { category: "business", heading: "For Businesses" },
+  { category: "academic", heading: "For Academics & Students" },
+];
 
+export default function ServicesPage() {
   return (
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-6 py-20">
@@ -20,21 +24,21 @@ export default function ServicesPage() {
           built around the same principle: rigorous work, delivered on time.
         </p>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {services.map((service) => (
-            <Link
-              key={service.slug}
-              href={`/services/${service.slug}`}
-              className="rounded-lg border border-gray-100 p-8 hover:border-navy transition-colors"
-            >
-              <h2 className="text-xl font-semibold text-navy">{service.title}</h2>
-              <p className="mt-3 text-gray-600">{service.summary}</p>
-              <span className="mt-6 inline-block text-sm font-medium text-orange">
-                Learn more →
-              </span>
-            </Link>
-          ))}
-        </div>
+        {sections.map(({ category, heading }) => {
+          const categoryServices = getServicesByCategory(category);
+          if (categoryServices.length === 0) return null;
+
+          return (
+            <div key={category} className="mt-16 first:mt-12">
+              <h2 className="text-2xl font-semibold text-navy">{heading}</h2>
+              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {categoryServices.map((service) => (
+                  <ServiceCard key={service.slug} service={service} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

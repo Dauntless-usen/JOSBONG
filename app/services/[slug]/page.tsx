@@ -1,31 +1,50 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllServices, getServiceBySlug } from "@/lib/content";
+import { getServiceBySlug as getContentServiceBySlug } from "@/lib/content";
+import { services as serviceListings, getServiceListing } from "@/lib/services";
 import ServiceTemplate from "@/components/services/ServiceTemplate";
+import SimpleServiceTemplate from "@/components/services/SimpleServiceTemplate";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-  return getAllServices().map((service) => ({ slug: service.slug }));
+  return serviceListings.map((service) => ({ slug: service.slug }));
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
-  if (!service) return {};
+
+  const contentService = getContentServiceBySlug(slug);
+  if (contentService) {
+    return {
+      title: `${contentService.title} - JosBong`,
+      description: contentService.summary,
+    };
+  }
+
+  const listing = getServiceListing(slug);
+  if (!listing) return {};
   return {
-    title: `${service.title} - JosBong`,
-    description: service.summary,
+    title: `${listing.title} - JosBong`,
+    description: listing.description,
   };
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
 
-  if (!service) notFound();
+  // Content-backed services (with full MDX: deliverables, process steps,
+  // body) get the rich template. Everything else in the canonical service
+  // list still gets a real page, generated from its title + description.
+  const contentService = getContentServiceBySlug(slug);
+  if (contentService) {
+    return <ServiceTemplate service={contentService} />;
+  }
 
-  return <ServiceTemplate service={service} />;
+  const listing = getServiceListing(slug);
+  if (!listing) notFound();
+
+  return <SimpleServiceTemplate service={listing} />;
 }

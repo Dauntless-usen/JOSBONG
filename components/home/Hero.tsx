@@ -6,11 +6,12 @@ export default function Hero() {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-navy max-w-3xl mx-auto">
-          Research, AI, and data expertise for businesses and academia
+          We help you with <HeroTypewriter />
         </h1>
         <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
-          From <HeroTypewriter /> to impact, JosBong helps businesses and
-          academics move faster on rigorous, well-supported work.
+          JosBong helps companies build with AI and data, and helps
+          researchers and students move faster on rigorous, well-supported
+          work.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Button href="/quote">Request a Quote</Button>

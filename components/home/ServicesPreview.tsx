@@ -1,17 +1,8 @@
 import Link from "next/link";
-import { FlaskConical, BrainCircuit, BarChart3, GraduationCap, type LucideIcon } from "lucide-react";
-import { getAllServices } from "@/lib/content";
-
-const iconBySlug: Record<string, LucideIcon> = {
-  research: FlaskConical,
-  "ai-solutions": BrainCircuit,
-  "data-analysis": BarChart3,
-  "academic-support": GraduationCap,
-};
+import { services } from "@/lib/services";
+import ServiceCard from "@/components/services/ServiceCard";
 
 export default function ServicesPreview() {
-  const services = getAllServices();
-
   return (
     <section className="bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-20">
@@ -25,21 +16,19 @@ export default function ServicesPreview() {
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => {
-            const Icon = iconBySlug[service.slug] ?? FlaskConical;
-            return (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="rounded-lg border border-gray-100 p-6 hover:border-navy transition-colors"
-              >
-                <Icon className="text-orange" size={28} />
-                <h3 className="mt-4 font-semibold text-navy">{service.title}</h3>
-                <p className="mt-2 text-sm text-gray-600">{service.summary}</p>
-              </Link>
-            );
-          })}
+        <div className="mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+          <div className="flex w-max animate-marquee gap-6 hover:[animation-play-state:paused]">
+            {services.map((service) => (
+              <ServiceCard key={service.title} service={service} className="w-64 flex-shrink-0" />
+            ))}
+            {services.map((service) => (
+              <ServiceCard
+                key={`${service.title}-repeat`}
+                service={service}
+                className="w-64 flex-shrink-0"
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
